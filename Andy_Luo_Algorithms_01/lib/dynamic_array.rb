@@ -73,7 +73,7 @@ class DynamicArray
   attr_writer :length
 
   def check_index(index)
-    raise "index out of bounds" if index >= @length
+    raise "index out of bounds" if (index >= @length)
   end
 
   # O(n): has to copy over all the elements to the new store.
