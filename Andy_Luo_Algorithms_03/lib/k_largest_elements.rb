@@ -19,8 +19,13 @@ def k_largest_elements(array, k)
     # p array
     partition -= 1
     BinaryMinHeap.heapify_down(array, 0, partition, &prc)
+    # p array
   end
+  # array[0..k-1]
   array.reverse[0..k-1]
   # array.reverse!
 
 end
+
+# heap implications
+ #concern with finding the extreme elements

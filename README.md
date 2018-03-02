@@ -6,4 +6,5 @@ Week           | Description
 -------------- | -------------------------------------------------------------
 W12D1          | Static Arrays, Dynamic Arrays, Ring Buffers, Max Stack Queues
 W12D2          | Int Set, Hashing, Hash Set, Linked Lists, Hash Maps, LRU Caches
-W12D3          | Heap(Priority Queues) and Heapsort
+W12D3          | Heap(Priority Queues), Heapsort, Heapsort In Place
+W12D4          | Quicksort and Quicksort In Place
