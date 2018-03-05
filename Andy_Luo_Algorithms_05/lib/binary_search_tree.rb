@@ -30,11 +30,11 @@ class BinarySearchTree
 
   def maximum(node = @root)
     if node.right
-      maximum_node = maximum(node.right)
+      max_node = maximum(node.right)
     else
-      maximum_node = node
+      max_node = node
     end
-    maximum_node
+    max_node
   end
 
   def depth(node = @root)
@@ -99,8 +99,6 @@ class BinarySearchTree
   end
 
   def delete_from_tree(node, value)
-    # if correct node is found, then call remove on it.
-    # otherwise, recurse until you find it
     if value == node.value
       node = remove(node)
     elsif value <= node.value
@@ -113,20 +111,12 @@ class BinarySearchTree
 
   def remove(node)
     if node.left.nil? && node.right.nil?
-      # when node doesn't have children,
-      # simply remove it.
       node = nil
     elsif node.left && node.right.nil?
-      # when node only has one child,
-      # delete it and promote its child to take its place.
       node = node.left
     elsif node.left.nil? && node.right
       node = node.right
     else
-      # if node has two children,
-      # promote the maximum node in its left subtree to replace itself
-      # if that specific node that was promoted has children,
-      # then promote
       node = replace_parent(node)
     end
     node
@@ -137,9 +127,6 @@ class BinarySearchTree
     if node_replacement.left
       promote_child(node.left)
     end
-
-    # since the node_replacement is still pointing to its old children,
-    # we have to update its children pointers
     node_replacement.left = node.left
     node_replacement.right = node.right
 
@@ -149,10 +136,10 @@ class BinarySearchTree
   def promote_child(node)
     if node.right
       current_parent = node
-      maximum_node = maximum(node.right)
+      max_node = maximum(node.right)
     else
       return node
     end
-    current_parent.right = maximum_node.left
+    current_parent.right = max_node.left
   end
 end
