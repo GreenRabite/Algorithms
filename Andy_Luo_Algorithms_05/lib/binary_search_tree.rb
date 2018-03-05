@@ -133,17 +133,17 @@ class BinarySearchTree
   end
 
   def replace_parent(node)
-    replacement_node = maximum(node.left)
-    if replacement_node.left
+    node_replacement = maximum(node.left)
+    if node_replacement.left
       promote_child(node.left)
     end
 
-    # since the replacement_node is still pointing to its old children,
+    # since the node_replacement is still pointing to its old children,
     # we have to update its children pointers
-    replacement_node.left = node.left
-    replacement_node.right = node.right
+    node_replacement.left = node.left
+    node_replacement.right = node.right
 
-    replacement_node
+    node_replacement
   end
 
   def promote_child(node)
