@@ -1,4 +1,3 @@
-
 def kth_largest(node, k)
   kth_node = { length: 0, node: nil }
   in_order_reverse(node, kth_node, k)[:node]

@@ -1,5 +1,5 @@
 require 'bst_node'
-require 'byebug'
+# require 'byebug'
 
 class BinarySearchTree
   attr_reader :root
@@ -29,6 +29,7 @@ class BinarySearchTree
   end
 
   def maximum(node = @root)
+    # debugger
     if node.right
       max_node = maximum(node.right)
     else
