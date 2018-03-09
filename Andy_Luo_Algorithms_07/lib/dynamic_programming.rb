@@ -61,7 +61,7 @@ class DynamicProgramming
       frog_cache[op-2].each do |hop|
         current_hop_arr << (hop.dup << 2)
       end
-      #All permuations of hops when you need two more hops
+      #All permuations of hops when you need three more hops
       frog_cache[op-3].each do |hop|
         current_hop_arr << (hop.dup << 3)
       end
@@ -116,12 +116,32 @@ class DynamicProgramming
   end
 
   def knapsack(weights, values, capacity)
-
+    return 0 if weights.empty? || values.empty? || capacity == 0
+    solution_table = knapsack_table(weights,values,capacity)
+    max_capacity = solution_table.last.last
   end
 
   # Helper method for bottom-up implementation
   def knapsack_table(weights, values, capacity)
+    soln = Array.new(capacity + 1) { [] }
 
+    (0..capacity).each do |cap|
+      values.length.times do |idx|
+        if cap.zero?
+          soln[cap][idx] = 0
+        elsif idx.zero?
+          soln[cap][idx] = weights[0] > cap ? 0 : values[0]
+        else
+          previous_soln_at_cap =
+            soln[cap][idx - 1]
+          previous_soln_and_this_item =
+            weights[idx] > cap ? 0 : soln[cap - weights[idx]][idx - 1] + values[idx]
+          soln[cap][idx] = [previous_soln_at_cap, previous_soln_and_this_item].max
+        end
+      end
+    end
+
+    soln
   end
 
   def maze_solver(maze, start_pos, end_pos)
