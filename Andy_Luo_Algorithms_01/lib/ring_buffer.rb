@@ -5,7 +5,7 @@ class RingBuffer
 
   def initialize
     self.store = StaticArray.new(8)
-     self.capacity = 8
+    self.capacity = 8
     self.start_idx = 0
     self.length = 0
   end
