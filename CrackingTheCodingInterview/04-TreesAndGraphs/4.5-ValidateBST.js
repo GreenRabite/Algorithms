@@ -1,5 +1,8 @@
 // Implement a function to check if a binary tree is a binary search tree
 
+//This solution use the rules of binary tree to assure that everything to the
+// left of a node is smaller than the current node and everything to the
+// right is larger than the current node
 function isValidBST(root, min = null, max = null){
   if (root === null) { return true;}
   if ((min !== null && root <= min) || (max !== null && root > max) ) {
