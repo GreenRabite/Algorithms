@@ -1,6 +1,9 @@
 // Write an algorithm to find the next node (in order successor) of a given node in a binary search
 // Tree
 
+
+// In-order traversal means you go left subtree, current node, right subtree.
+//
 function successor(node){
   if (node === null) { return null;}
   if (node.right !== null) {
@@ -27,6 +30,7 @@ function Node(val){
   this.val = val;
   this.left = null;
   this.right = null;
+  this.parent = null;
 }
 
 let node = new Node(5);
