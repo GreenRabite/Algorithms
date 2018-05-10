@@ -73,20 +73,24 @@ function sumLists(nodeA, nodeB){
 // Input: ( 7-> 1 -> 6) + (5-> 9 ->2) 617 + 295
 // Output: 2 -> 1 -> 9 = 912
 
-let a1 = new Node(7);
-let a2 = new Node(1);
-let a3 = new Node(6);
+//1234 && 567
+
+let a1 = new Node(1);
+let a2 = new Node(2);
+let a3 = new Node(3);
+let a4 = new Node(4);
 let b1 = new Node(5);
-let b2 = new Node(9);
-let b3 = new Node(2);
+let b2 = new Node(6);
+let b3 = new Node(7);
 
 a1.next = a2;
 a2.next = a3;
+a3.next = a4;
 b1.next = b2;
 b2.next = b3;
 
 let x = sumLists(a1,b1);
 console.log(x);
 
-// console.log(x.next);
-// console.log(x.next.next);
+console.log(x.next);
+console.log(x.next.next);
